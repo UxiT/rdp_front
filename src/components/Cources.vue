@@ -1,53 +1,52 @@
 <script setup>
 import Sidebar from './partials/Sidebar.vue';
 import Header from './partials/Header.vue';
-import { RouterLink } from 'vue-router';
+import BlockTitle from './partials/BlockTitle.vue';
+import Table from './partials/DataView/Table.vue';
+import courseColumns from './static/courses/_columns';
 
 const cources = [
     {
-        name: 'Нсд',
-        link: '/cources',
+        title: 'Нсд',
+        progress: '2/8 ЛР',
+        period: '10.02.2023 - 25.05.2023',
+        actions: ''
     },
     {
-        name: 'Криптография',
-        link: '/scores',
+        title: 'Криптография',
+        progress: '1/8 ЛР',
+        period: '10.02.2023 - 25.05.2023',
+        actions: ''
     },
     {
-        name: 'КУРС №1',
-        link: '/profile',
-    }
+        title: 'ТЗИ',
+        progress: '5/12 ЛР',
+        period: '10.02.2023 - 25.05.2023',
+        actions: ''
+    },
+    
 ];
-
-const getCources = () => {
-
-}
-
 </script>
 
 <template>
-    <Header/>
+    <Header></Header>
   <div class="cources wrapper block-wrapper">
     <Sidebar/>
-    <div class="cources_info card">
-        <h2 class="block-title">Список доступных курсов</h2>
-        <div class="cource__list">
-            <ul class="cource__list">
-                <li v-for="cource in cources">
-                    <div class="icon"></div>
-                    <RouterLink v-for="item in cources" :to="item.link"> 
-                        {{ item.name }}
-                    </RouterLink>
-                </li>
-            </ul>
+    <div class="block-content">
+        <BlockTitle title="Доступные курсы"/>
+        <div class="cources_content card">
+            <Table  :columns="courseColumns"
+                    :data="cources"
+            >
+                
+            </Table>
         </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-    .card {
-        width: 100%;
-        flex-grow: 1;
+    .cources_content{
+        padding: 40px 20px;
     }
-
 </style>

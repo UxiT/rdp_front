@@ -11,6 +11,7 @@
     .header {
         width: 100%;
         padding: 10px;
+        margin-bottom: 20px;
     }
 
     .header_content {
@@ -18,6 +19,6 @@
         height: 100%;
         background-color: #0061ff;
         border-radius: 12px;
-        min-height: 60px;
+        min-height: 80px;
     }
 </style>

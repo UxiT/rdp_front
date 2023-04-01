@@ -6,9 +6,13 @@
   font-weight: normal;
 }
 
-body {background-color: #f3f3f3;}
+body {
+  background-color: #f3f3f3; 
+  font-weight: normal;
+  font-family: 'Rubik', sans-serif;
+}
 
-.wrapper {max-width: 1280px;margin: 0 auto; display: flex;}
+.wrapper {max-width: 1280px;margin: 0 auto; display: flex; gap: 40px}
 .row {display: flex;flex-direction: row;}
 .button-blue:hover {background-color: var(--blue-main-hover);}
 .mono {font-family: 'Roboto Mono', monospace;}
@@ -42,3 +46,5 @@ ul>li {
   border-radius: 12px;
   box-shadow: 2px 2px 8px #d0d0d0;
 }
+
+.block-content {width: 100%}
