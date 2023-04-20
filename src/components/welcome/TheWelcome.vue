@@ -30,6 +30,7 @@
   import Modal from '../partials/Modal.vue';
   import { ref, reactive } from 'vue';
   import useEventsBus from '../../composables/eventBus';
+  import axios from 'axios';
 
   export default {
     components: {
@@ -50,21 +51,29 @@
       
       function postLogin() {
         let data = {
-          'username': this.formData.username,
+          'login': this.formData.username,
           'password': this.formData.password,
         };
 
-        axios.post('http://127.0.0.1:8080/login', data)
+        axios.post('http://127.0.0.1:8080/login', data, {
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "*/*"
+          }
+        })
           .then(response => {
-              this.localStorage.accessToken = response.accessToken;
+            const token = response.data.accessToken;
+            
+            if (token) {
+              localStorage.setItem('accessToken', token)
+              window.location.href = '/profile';
+
+              console.log(localStorage)
+            }
           })
           .catch(error => {
             this.error = error;
           });
-
-          if (this.localStorage.accessToken) {
-              window.location.replace("http://127.0.0.1:5173/home")
-          }
       }
 
       return {

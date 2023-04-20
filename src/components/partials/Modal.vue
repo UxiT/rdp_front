@@ -68,6 +68,9 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: red;
+    background: url('../../assets/img/close.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 </style>
