@@ -45,6 +45,33 @@ ul>li {
   background: #fff;
   border-radius: 12px;
   box-shadow: 2px 2px 8px #d0d0d0;
+  padding: 40px 20px;
 }
 
 .block-content {width: 100%}
+
+h3 {font-weight: 400; font-size: 40px;}
+
+button[type='submit'] {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 100%;
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #0061ff;
+  border-radius: 6px;
+  color: #fff;
+
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 19px;
+}
+
+button[type='submit']:hover,
+.login-trouble:hover
+{opacity: 0.8;}

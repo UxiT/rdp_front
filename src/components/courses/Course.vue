@@ -5,7 +5,7 @@
         <div class="block-content">
             <BlockTitle title="Доступные курсы" />
             <div class="cources_content card">
-                <Table :columns="courseColumns" :data="courses">
+                <Table :columns="courseColumns" :data="courses.flat()">
 
                 </Table>
             </div>
@@ -19,7 +19,7 @@ import Header from './partials/Header.vue';
 import BlockTitle from './partials/BlockTitle.vue';
 import Table from './partials/DataView/Table.vue';
 import courseColumns from './static/courses/_columns';
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted, ref } from 'vue';
 import axios from 'axios';
 
 export default {
@@ -31,8 +31,11 @@ export default {
     },
 
     setup() {
-        const state = reactive({ logged: false });
-        const courses = reactive([]);
+        const courses = ref([])
+
+        const state = reactive({ 
+            logged: false,
+         });
         const columns = courseColumns;
 
         onMounted(() => {
@@ -44,7 +47,7 @@ export default {
                 }
             })
                 .then(response => {
-                    courses.value = response.data
+                    courses.value.push(response.data)
                     state.logged = true
                 })
                 .catch(error => {
@@ -55,8 +58,8 @@ export default {
 
         return {
             loaded: state.logged,
-            courses: courses,
-            columns: columns
+            courses: courses.value,
+            courseColumns: columns,
         }
     }
 }

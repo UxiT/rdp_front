@@ -8,10 +8,10 @@
         </span>
       </div>
       <ul class="list-items">
-        <li v-for="(row, idx) in data" :class="[(idx + 1) % 2 == 0 ? 'even' : 'odd']">
+        <li v-for="(row, idx) in data" :class="[(idx + 1) % 2 == 0 ? 'even' : 'odd']" :data-entity="row.id">
             <div class="col-xs">{{ idx+1 }}</div>
-            <div v-for="(value, id) in row" :class="[columns[id]['className']]">
-                {{ value }}
+            <div v-for="(col, id) in columns" :class="col['className']">
+                {{ row[col.data] }}
             </div>
         </li>
       </ul>
@@ -25,9 +25,10 @@ export default {
     tableClass: {},
     columns: { type: Object },
     settings: {},
-    data: {},
+    data: {type: Array},
   },
   setup(props) {
+    console.log(props)
     return {
       props
     };
