@@ -5,7 +5,7 @@
         <div class="block-content">
             <BlockTitle title="Доступные курсы" />
             <div class="cources_content card">
-                <Table :columns="courseColumns" :data="courses.flat()">
+                <Table :columns="courseColumns" :data="courses.flat()" href="/course">
                     
                 </Table>
             </div>

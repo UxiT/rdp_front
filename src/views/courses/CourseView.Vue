@@ -1,15 +1,15 @@
 <template>
     <main>
-      <Cources />
+      <Cource />
     </main>
   </template>
   
   <script>
-  import Cources from '../components/courses/Cources.vue';
+  import Cource from '../../components/courses/Course.vue';
   
   export default {
     components: {
-      Cources
+      Cource
     },
   
     setup() {

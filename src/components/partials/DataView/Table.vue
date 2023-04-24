@@ -9,10 +9,12 @@
       </div>
       <ul class="list-items">
         <li v-for="(row, idx) in data" :class="[(idx + 1) % 2 == 0 ? 'even' : 'odd']" :data-entity="row.id">
-            <div class="col-xs">{{ idx+1 }}</div>
-            <div v-for="(col, id) in columns" :class="col['className']">
-                {{ row[col.data] }}
-            </div>
+            <a :href="`${href}/${row.id}`">
+              <div class="col-xs">{{ idx+1 }}</div>
+              <div v-for="(col, id) in columns" :class="col['className']">
+                  {{ row[col.data] }}
+              </div>
+            </a>
         </li>
       </ul>
     </div>
@@ -26,6 +28,7 @@ export default {
     columns: { type: Object },
     settings: {},
     data: {type: Array},
+    href: {type: String}
   },
   setup(props) {
     console.log(props)
@@ -57,14 +60,16 @@ export default {
         padding: 0 10px 16px 10px;
     }
 
-    .list-items li {
+    .list-items li a{
         display: flex;
         align-items: center;
         padding: 10px;
         border-radius: 6px;
         margin-bottom: 9px;
         cursor: pointer;
-    }
+        text-decoration: none;
+        color: #111;
+      }
 
     li.odd {
         background-color: #f9f9f9;

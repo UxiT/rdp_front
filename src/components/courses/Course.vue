@@ -3,7 +3,7 @@
     <div class="cources wrapper block-wrapper">
         <Sidebar />
         <div class="block-content">
-            <BlockTitle title="Доступные курсы" />
+            <BlockTitle title="НСД" />
             <div class="cources_content card">
                 <Table :columns="courseColumns" :data="courses.flat()">
 
@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import Sidebar from './partials/Sidebar.vue';
-import Header from './partials/Header.vue';
-import BlockTitle from './partials/BlockTitle.vue';
-import Table from './partials/DataView/Table.vue';
-import courseColumns from './static/courses/_columns';
+import Sidebar from '../partials/Sidebar.vue';
+import Header from '../partials/Header.vue';
+import BlockTitle from '../partials/BlockTitle.vue';
+import Table from '../partials/DataView/Table.vue';
+import courseColumns from '../static/courses/_columns';
 import { reactive, onMounted, ref } from 'vue';
 import axios from 'axios';
 
@@ -39,7 +39,7 @@ export default {
         const columns = courseColumns;
 
         onMounted(() => {
-            axios.get('http://127.0.0.1:8080/courses', {
+            axios.get(`http://127.0.0.1:8080/tasks/by-course?course_id=${this.$route.param.id}`, {
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "*/*",
