@@ -5,8 +5,10 @@
         <div class="block-content">
             <BlockTitle title="Доступные курсы" />
             <div class="cources_content card">
-                <Table :columns="courseColumns" :data="courses.flat()" href="/course">
-                    
+                <Table 
+                    :columns="courseColumns" 
+                    :data="courses.flat()" 
+                    href="/course">
                 </Table>
             </div>
         </div>
@@ -47,6 +49,7 @@ export default {
                 }
             })
                 .then(response => {
+                    console.log(response.data)
                     courses.value.push(response.data)
                     state.logged = true
                 })

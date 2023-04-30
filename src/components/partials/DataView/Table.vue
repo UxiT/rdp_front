@@ -31,7 +31,6 @@ export default {
     href: {type: String}
   },
   setup(props) {
-    console.log(props)
     return {
       props
     };

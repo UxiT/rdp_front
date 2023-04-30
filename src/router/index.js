@@ -6,10 +6,10 @@ const router = createRouter({
   routes: [
     {path: '/', name: 'home', component: HomeView},
     {path: '/profile', name: 'profile', component: () => import('../views/ProfileView.vue')},
-    {path: '/cources', name: 'cources', component: () => import('../views/courses/CourseListView.vue')},
+    {path: '/courses', name: 'cources', component: () => import('../views/courses/CourseListView.vue')},
     {path: '/course/:id', name: 'course', component: () => import('../views/courses/CourseView.vue')},
     {path: '/scores', name: 'scores', component: () => import('../views/ScoresView.vue')},
-    {path: '/task', name: 'task', component: () => import('../views/TaskView.vue')},
+    {path: '/task/:id', name: 'task', component: () => import('../views/TaskView.vue')},
   ]
 });
 

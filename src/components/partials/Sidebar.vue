@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 const items = [
   {
     name: "Мои курсы",
-    link: "/cources",
+    link: "/courses",
   },
   {
     name: "Успеваемость",
